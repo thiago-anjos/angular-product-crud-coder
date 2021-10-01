@@ -1,0 +1,21 @@
+<mat-sidenav-container class="container">
+  <mat-sidenav
+    class="sidenav"
+    mode="side"
+    opened
+    fixedInViewport="true"
+    fixedTopGap="65"
+  >
+    <mat-nav-list class="nav-list">
+      <span *ngFor="let item of menuItems">
+        <a mat-list-item routerLink="{{ item.path }}">
+          <i class="material-icons"> {{ item.data?.icon }} </i>
+          {{ item.data?.label | uppercase }}
+        </a>
+      </span>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content class="content">
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>
