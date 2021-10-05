@@ -27,4 +27,14 @@ export class ProductService {
   read(): Observable<Product[]> {
     return this.http.get<Product[]>(environment.baseUrl);
   }
+
+  readById(id: string): Observable<Product> {
+    const url = `${environment.baseUrl}/${id}`;
+    return this.http.get<Product>(url);
+  }
+
+  update(product: Product): Observable<Product> {
+    const url = `${environment.baseUrl}/${product.id}`;
+    return this.http.put<Product>(url, product);
+  }
 }
